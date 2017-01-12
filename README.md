@@ -12,6 +12,7 @@ Each model instance represents an entry in Tile38.
     class Shop(TilePointBase):
         serializer = Serializer
         identifier = Key("shop")
+	
         id = Value("")
         lat = Value(0.0)
         lon = Value(0.0)
@@ -94,7 +95,7 @@ Serializer is responsible for serializing/parsing data ( both for class methods 
     shop4.lat = 33.33
     shop4.set(type="point") # update this point with new data
     dict(shop4)
-    >>> {'lat': 5.5, 'lon': 51.835778, 'id': 'metzgereiinübereinstimmungmitrindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz'}
+    >>> {'lat': 33.33, 'lon': 9.931641, 'id': 'metzgereiinübereinstimmungmitrindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz'}
 
     # check ttl
     shop3.ttl().result
