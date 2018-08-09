@@ -7,8 +7,9 @@ Commands are built from instance properties or keyword arguments, therefore each
 
 # Models
 
-Each model instance represents an entry in Tile38. 
+Each model instance represents an entry in Tile38.
 
+```python
     class Shop(TilePointBase):
         serializer = Serializer
         identifier = Key("shop")
@@ -16,10 +17,11 @@ Each model instance represents an entry in Tile38.
         id = Value("")
         lat = Value(0.0)
         lon = Value(0.0)
-
+```
 
 Serializer is responsible for serializing/parsing data ( both for class methods and instance methods ).
 
+```python
 	class Serializer(object):
 		@classmethod
 		def is_valid(cls, response):
@@ -70,9 +72,11 @@ Serializer is responsible for serializing/parsing data ( both for class methods 
 
 			return result
 
+```
 
 # Example
 
+```python
     shop1 = Shop.create(lat=45.02695, lon=-77.431641, id="modula")
     shop1.set(type="point") # alternatively, you can add this property to Shop class
 
@@ -106,8 +110,8 @@ Serializer is responsible for serializing/parsing data ( both for class methods 
     >>> True
 
     Shop.ids()
-    # >>> ['modula', 'bellissimo', 'metzgereiinübereinstimmungmitrindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz']
-
+    # >>> ['modula', 'bellissimo', 'metzgereiinübereinstimmungmitrindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz']    
+```
 
 #### dependencies
 - [credis](https://github.com/yihuang/credis) ( requires Cython )
