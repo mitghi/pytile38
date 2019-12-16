@@ -109,7 +109,7 @@ shop3.persist().result
 >>> True
 
 Shop.ids()
-# >>> ['modula', 'bellissimo', 'metzgereiinübereinstimmungmitrindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz'] 
+# >>> ['modula', 'bellissimo'] 
 ```
 
 #### dependencies
