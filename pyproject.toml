@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "pytile38"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages    = [
+    { include = "pytile38" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+credis = "^2.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+
+[tool.isort]
+profile = "black"
+multi_line_output=3
+include_trailing_comma = true
+default_section = "FIRSTPARTY"
+known_third_party = ["credis"]
+sections = ["STDLIB","THIRDPARTY","FIRSTPARTY","LOCALFOLDER"]
+
+[tool.black]
+line-length = 120
+target-version = ['py39']
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+markers = ["unit"]
+
+[tool.flake8]
+ignore = [
+    "D203", "E203", "W503", "SCS108",
+    "R502", "R501", "R504", "R503", "PIE781",
+    "PIE786", "PIE798", "PIE803", "PIE785",
+    "PIE797", "S105", "ECE001"
+    ]
+exclude = [
+    "**/__pycache__",
+    "**/tests/*",
+    "**/python",
+    "**/.venv",
+    "**/build/",
+    "**/old/*"
+]
+max-complexity = 10
+max-line-length = 120
+extend-immutable-calls = []
+
+kwargs-max-positional-arguments = 4
+kwargs-ignore-function-pattern-extend = ''
+
+noqa-require-code = true
