@@ -3,7 +3,7 @@
 Simple python client for [Tile38](https://github.com/tidwall/tile38).
 Currently, only a subset of commands are supported. However, you can manually add new commands by defining a scheme ( look at tile.py ).
 
-Commands are built from instance properties or keyword arguments, therefore each command only requires missing attributes. 
+Commands are built from instance properties or keyword arguments, therefore each command only requires missing attributes.
 
 # Models
 
@@ -13,7 +13,7 @@ Each model instance represents an entry in Tile38.
 class Shop(TilePointBase):
 	serializer = Serializer
         identifier = Key("shop")
-	
+
         id = Value("")
         lat = Value(0.0)
         lon = Value(0.0)
@@ -39,7 +39,7 @@ class Serializer(object):
 			instance.fields = [tuple(fields[i:i+2]) for i in range(0, len(fields), 2)]
 			result = result[0]
 		if response.kwargs.get("type") == "point":
-			lon, lat = list(map(float, result))			
+			lon, lat = list(map(float, result))
 		elif response.kwargs.get("type") == None:
 			lon, lat = list(map(float, result.get("coordinates")))
 		instance.lat = lat
@@ -82,7 +82,7 @@ shop1.set(type="point") # alternatively, you can add this property to Shop class
 shop2 = Shop.create(lat=43.516689, lon=-74.794922, id="bellissimo", type="point")
 shop2.set(type="point")
 
-shop3 = Shop.create(lat=51.835778, 
+shop3 = Shop.create(lat=51.835778,
                     lon=9.931641,
                     id="metzgerei",
                     type="point",
@@ -105,11 +105,11 @@ shop3.ttl().result
 >>> 59
 
 # remove expiration
-shop3.persist().result 
+shop3.persist().result
 >>> True
 
 Shop.ids()
-# >>> ['modula', 'bellissimo'] 
+# >>> ['modula', 'bellissimo']
 ```
 
 #### dependencies
